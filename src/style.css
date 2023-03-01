@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #FEFFFE;
+    min-height: 100vh;
+}
+
+body.dark{
+    background-color: #040504;
+    color:#FEFFFE
+}
+
+/* App Component */
+
+main{
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+main > p {
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Header Component */
+
+nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    padding: 0 25px;
+}
+
+nav .logo {
+    font-size: 1.5em;
+    margin-right: auto;
+}
+
+nav .darkModeLogo{
+    font-size: 1.3em;
+}
+
+/* Checkbox start */
+
+.darkMode-Wrapper .ikxBAC {
+    appearance: none;
+    background-color: #dfe1e4;
+    border-radius: 72px;
+    border-style: none;
+    flex-shrink: 0;
+    height: 20px;
+    margin: 0;
+    position: relative;
+    width: 30px;
+  }
+
+  .darkMode-Wrapper .ikxBAC::before {
+    bottom: -6px;
+    content: "";
+    left: -6px;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+  }
+
+  .darkMode-Wrapper .ikxBAC,
+  .darkMode-Wrapper .ikxBAC::after {
+    transition: all 100ms ease-out;
+  }
+
+  .darkMode-Wrapper .ikxBAC::after {
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 14px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    width: 14px;
+  }
+
+  .darkMode-Wrapper input[type=checkbox] {
+    cursor: default;
+  }
+
+  .darkMode-Wrapper .ikxBAC:hover {
+    background-color: #c9cbcd;
+    transition-duration: 0s;
+  }
+
+  .darkMode-Wrapper .ikxBAC:checked {
+    background-color: #A745EC;
+  }
+
+  .darkMode-Wrapper .ikxBAC:checked::after {
+    background-color: #fff;
+    left: 13px;
+  }
+
+  .darkMode-Wrapper :focus:not(.focus-visible) {
+    outline: 0;
+  }
+
+  .darkMode-Wrapper .ikxBAC:checked:hover {
+    background-color: #A745EC;
+  }
+
+  /* Form Components */
+
+  .searchBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin:0 15px;
+  }
+
+  .searchBox > input {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: bold;
+    font-size:18px;
+    background-color: #F4F4F4;
+    width: 100%;
+    height: 30px;
+    border:0;
+  }
+
+  .searchBox.dark {
+    background-color: #1E1E1F;
+  }
+
+  .searchBox.dark > input{
+    color: #F4F4F4;
+    background-color: #1E1E1F;
+  }
+
+  .searchBox > input:focus{
+    outline: 0;
+  }
+
+  .searchBox > i {
+    color: #A745EC;
+  }
+
+  .searchBox > i:hover{
+    cursor: pointer;
+  }
+
+/* Output */
+
+.outputWord{
+    margin:25px;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 700;
+    font-size: 2.2em;
+}
+
+.outputMeaning{
+    display: flex;
+    flex-direction: column;
+}
+
+.outputMeaning > p {
+    font-family: 'Merriweather', sans-serif;
+    margin: 10px 25px;
+    color: #848584;
+}
+
+.outputMeaning > ul {
+    font-family: 'Merriweather', sans-serif;
+    margin: 0 0 25px 0;
+    padding: 0 50px;
+    list-style: none;
+}
+
+.outputMeaning > ul li::before{
+    font-size:22px;
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #A745EC; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+}
+
+.outputType{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.outputType > p {
+    margin: 0;
+    font-family: 'Croissant One', cursive;
+    font-size: 16px;
+    color:#5b5c5b;
+}
+
+.outputType.dark > p {
+    color:#b5b6b5;
+}
+
+.outputType > hr {
+    flex-grow: 1;
+    border: 1px solid #E9E9E8;
+    border-radius: 5px;
+}
+
+.outputType > hr.dark {
+    border: 1px solid #454545;
+}
