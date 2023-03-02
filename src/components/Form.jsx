@@ -5,23 +5,7 @@ export default function Form({darkMode, urlTakip}){
     const [kelime, setKelime] = React.useState({show:false, kelime:""})
     const [anlam, setAnlam] = React.useState([])
     const [outputs, setOutputs] = React.useState([])
-    const [loader, setLoader] = React.useState(false)
-
-    async function gorevAdami(word){
-        const anlamListe = await fetchTDK(word)
-        if(anlamListe===false){
-            setKelime({show:true, kelime:"Bulunamadı."})
-            setAnlam([])
-            setOutputs([])
-        }else{
-            setAnlam(anlamListe)
-            setKelime({kelime:word, show:true})
-        }
-    }
-
-    React.useEffect(()=>{
-        urlTakip && gorevAdami(urlTakip)
-    }, [urlTakip])
+    const [loader, setLoader] = React.useState(urlTakip ? true : false)
 
     async function fetchTDK(word){
         const res = await fetch("https://sozluk.gov.tr/gts?ara=" + word)
@@ -32,6 +16,24 @@ export default function Form({darkMode, urlTakip}){
             return data[0].anlamlarListe
         }
     }
+
+    async function gorevAdami(word){
+        const anlamListe = await fetchTDK(word)
+        if(anlamListe===false){
+            setKelime({show:true, kelime:"Bulunamadı."})
+            setAnlam([])
+            setOutputs([])
+            setLoader(false)
+        }else{
+            setAnlam(anlamListe)
+            setKelime({kelime:word, show:true})
+            setLoader(false)
+        }
+    }
+
+    React.useEffect(()=>{
+        urlTakip && gorevAdami(urlTakip)
+    }, [urlTakip])
 
      function handleForm(e){
         e.preventDefault()
@@ -49,7 +51,6 @@ export default function Form({darkMode, urlTakip}){
                         darkMode={darkMode}    
                    />
         })
-        setLoader(false)
         setOutputs(outputListe)
     },[anlam, darkMode])
 

@@ -11,7 +11,7 @@ export default function Output({anlam, tip, ornek, darkMode}){
                 <hr className={darkMode ? "dark" : ""}/>
             </div>
             <p>Anlamı</p>
-            <ul><li>{anlam}</li></ul>
+            <ul><li>{anlam.replace("343", "bkz.")}</li></ul>
             {
                 ornek_cumle !=0 && 
                 <>
