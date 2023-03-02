@@ -1,24 +1,15 @@
 import React from "react";
-import Form from "./components/Form";
-import Header from "./components/Header";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Home from './components/Home';
 
 export default function App(){
-    const [darkMode, setDarkMode] = React.useState(JSON.parse(localStorage.getItem("darkMode")) || false)
-
-    function handleDarkMode(){  
-        setDarkMode(prevMode=>{
-            localStorage.setItem("darkMode", !prevMode)
-            return !prevMode
-        })
-    }
-
-    darkMode ? document.body.classList.add('dark') : document.body.classList.remove('dark')
+    
 
     return (
-        <main>
-            <Header toggleDarkMode={handleDarkMode} darkMode={darkMode} />
-            <Form darkMode={darkMode} />
-            <p>&copy; 2023 Türkçe Sözlük made with ❤️ by Emre Coban - Powered by <i className="fa-brands fa-react"></i> ReactJS.</p>
-        </main>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/:kelime?" element={<Home/>} />
+            </Routes>
+        </BrowserRouter>
     )
 }

@@ -1,10 +1,25 @@
 import React from "react";
 import Output from "./Output";
 
-export default function Form({darkMode}){
+export default function Form({darkMode, urlTakip}){
     const [kelime, setKelime] = React.useState({show:false, kelime:""})
     const [anlam, setAnlam] = React.useState([])
     const [outputs, setOutputs] = React.useState([])
+
+    async function gorevAdami(word){
+        const anlamListe = await fetchTDK(word)
+        if(anlamListe===false){
+            setKelime({show:true, kelime:"Bulunamadı."})
+            setAnlam([])
+        }else{
+            setAnlam(anlamListe)
+            setKelime({kelime:word, show:true})
+        }
+    }
+
+    React.useEffect(()=>{
+        urlTakip && gorevAdami(urlTakip)
+    }, [urlTakip])
 
     async function fetchTDK(word){
         const res = await fetch("https://sozluk.gov.tr/gts?ara=" + word)
@@ -16,16 +31,9 @@ export default function Form({darkMode}){
         }
     }
 
-    async function handleForm(e){
+     function handleForm(e){
         e.preventDefault()
-        const anlamListe = await fetchTDK(kelime.kelime)
-        if(anlamListe===false){
-            setKelime({show:true, kelime:"Bulunamadı."})
-            setAnlam([])
-        }else{
-            setAnlam(anlamListe)
-            setKelime({...kelime, show:true})
-        }
+        gorevAdami(e.target.elements.kelime.value)
     }
 
     React.useEffect(()=>{
@@ -47,9 +55,9 @@ export default function Form({darkMode}){
                 <div className={darkMode ? "searchBox dark" : "searchBox"}>
                     <input 
                             type="text"
-                            name="kelime" 
+                            name="kelime"
+                            id="kelime" 
                             autoComplete="off"
-                            onChange={(e)=>setKelime(prevState=>({...prevState, kelime:e.target.value}))}
                     />
                     <i className="fa-solid fa-magnifying-glass" onClick={handleForm}></i>
                 </div>
