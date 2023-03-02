@@ -5,12 +5,14 @@ export default function Form({darkMode, urlTakip}){
     const [kelime, setKelime] = React.useState({show:false, kelime:""})
     const [anlam, setAnlam] = React.useState([])
     const [outputs, setOutputs] = React.useState([])
+    const [loader, setLoader] = React.useState(false)
 
     async function gorevAdami(word){
         const anlamListe = await fetchTDK(word)
         if(anlamListe===false){
             setKelime({show:true, kelime:"Bulunamadı."})
             setAnlam([])
+            setOutputs([])
         }else{
             setAnlam(anlamListe)
             setKelime({kelime:word, show:true})
@@ -33,6 +35,7 @@ export default function Form({darkMode, urlTakip}){
 
      function handleForm(e){
         e.preventDefault()
+        setLoader(true)
         gorevAdami(e.target.elements.kelime.value)
     }
 
@@ -46,6 +49,7 @@ export default function Form({darkMode, urlTakip}){
                         darkMode={darkMode}    
                    />
         })
+        setLoader(false)
         setOutputs(outputListe)
     },[anlam, darkMode])
 
@@ -63,7 +67,13 @@ export default function Form({darkMode, urlTakip}){
                 </div>
             </form>
             <h1 className="outputWord">{kelime.show && kelime.kelime}</h1>
-            {outputs}
+            {
+                loader ? 
+                <>
+                    <br /><div className="loader"></div><br />
+                </>
+                : outputs
+            }
         </>
     )
 }
