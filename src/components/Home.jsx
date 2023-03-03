@@ -19,7 +19,7 @@ export default function Home(){
         <main>
             <Header toggleDarkMode={handleDarkMode} darkMode={darkMode} />
             <Form darkMode={darkMode} urlTakip={useParams().kelime} />
-            <p>&copy; 2023 Türkçe Sözlük made with ❤️ by Emre Coban<br/>Powered by <i className="fa-brands fa-react"></i> ReactJS.</p>
+            <p style={{textAlign: "center"}}>&copy; 2023 Türkçe Sözlük made with ❤️ by Emre Coban<br/>Powered by <i className="fa-brands fa-react"></i> ReactJS.</p>
         </main>
     )
 }

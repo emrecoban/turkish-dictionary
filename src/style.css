@@ -20,12 +20,6 @@ main{
     margin: 0 auto;
 }
 
-main > p {
-    width: 100%;
-    text-align: center;
-}
-
-
 /* Header Component */
 
 nav {
@@ -153,6 +147,20 @@ nav .darkModeLogo{
 
   .searchBox > i:hover{
     cursor: pointer;
+  }
+
+  .onerilenler{
+    font-family: 'Merriweather', sans-serif;
+    font-size:14px;
+    margin:2px 15px;
+    padding:5px 15px;
+    border-radius: 7px;
+    text-align: left;
+    background-color: rgb(242, 242, 242);
+  }
+
+  .onerilenler.hide{
+    display: none;
   }
 
 /* Loader */

@@ -1,11 +1,15 @@
 import React from "react";
 import Output from "./Output";
+import Autowords from '../autocomplete';
+
 
 export default function Form({darkMode, urlTakip}){
     const [kelime, setKelime] = React.useState({show:false, kelime:""})
     const [anlam, setAnlam] = React.useState([])
     const [outputs, setOutputs] = React.useState([])
     const [loader, setLoader] = React.useState(urlTakip ? true : false)
+    const [kelimeOner, setKelimeOner] = React.useState("")
+    const [oneriKutusu, setOneriKutusu] = React.useState(true)
 
     async function fetchTDK(word){
         const res = await fetch("https://sozluk.gov.tr/gts?ara=" + word)
@@ -32,13 +36,14 @@ export default function Form({darkMode, urlTakip}){
     }
 
     React.useEffect(()=>{
-        urlTakip && gorevAdami(urlTakip)
+        urlTakip && gorevAdami(urlTakip.toLocaleLowerCase('tr-TR'))
     }, [urlTakip])
 
      function handleForm(e){
         e.preventDefault()
+        setOneriKutusu(false)
         setLoader(true)
-        gorevAdami(e.target.elements.kelime.value)
+        gorevAdami(e.target.elements.kelime.value.toLocaleLowerCase('tr-TR'))
     }
 
     React.useEffect(()=>{
@@ -54,6 +59,10 @@ export default function Form({darkMode, urlTakip}){
         setOutputs(outputListe)
     },[anlam, darkMode])
 
+    React.useEffect(()=>{
+        setOneriKutusu(true)
+    }, [kelimeOner])
+
     return (
         <>
             <form onSubmit={handleForm}>
@@ -63,10 +72,14 @@ export default function Form({darkMode, urlTakip}){
                             name="kelime"
                             id="kelime" 
                             autoComplete="off"
+                            onChange={(e)=>setKelimeOner(e.target.value.toLocaleLowerCase('tr-TR'))}
                     />
                     <i className="fa-solid fa-magnifying-glass" onClick={handleForm}></i>
                 </div>
             </form>
+            {
+                kelimeOner.length > 2 && Autowords.filter(oneri=>oneri.madde.startsWith(kelimeOner)).slice(0,7).map((oneriP, i)=><p className={oneriKutusu ? "onerilenler" : "onerilenler hide"} key={i}><b>{kelimeOner}</b>{oneriP.madde.split(kelimeOner)[1]}</p>)
+            }
             <h1 className="outputWord">{kelime.show && kelime.kelime}</h1>
             {
                 loader ? 
