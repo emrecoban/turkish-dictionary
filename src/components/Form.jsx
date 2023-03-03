@@ -78,7 +78,7 @@ export default function Form({darkMode, urlTakip}){
                 </div>
             </form>
             {
-                kelimeOner.length > 2 && Autowords.filter(oneri=>oneri.madde.startsWith(kelimeOner)).slice(0,7).map((oneriP, i)=><p className={oneriKutusu ? "onerilenler" : "onerilenler hide"} key={i}><b>{kelimeOner}</b>{oneriP.madde.split(kelimeOner)[1]}</p>)
+                kelimeOner.length > 2 && Autowords.filter(oneri=>oneri.madde.startsWith(kelimeOner)).slice(0,7).map((oneriP, i)=><p className={oneriKutusu ? darkMode ? "onerilenler dark" : "onerilenler" : "onerilenler hide"} key={i}><b>{kelimeOner}</b>{oneriP.madde.split(kelimeOner)[1]}</p>)
             }
             <h1 className="outputWord">{kelime.show && kelime.kelime}</h1>
             {

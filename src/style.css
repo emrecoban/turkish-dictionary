@@ -20,6 +20,14 @@ main{
     margin: 0 auto;
 }
 
+a {
+  color:#A745EC;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+
 /* Header Component */
 
 nav {
@@ -157,6 +165,11 @@ nav .darkModeLogo{
     border-radius: 7px;
     text-align: left;
     background-color: rgb(242, 242, 242);
+  }
+
+  .onerilenler.dark{
+    background-color: #1E1E1F;
+    color: #F4F4F4;
   }
 
   .onerilenler.hide{
