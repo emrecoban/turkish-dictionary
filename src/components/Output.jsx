@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Output({anlam, tip, ornek, darkMode}){
     const ozellikler = JSON.parse(tip).map(ozellik=>ozellik.tam_adi).join(", ")
-    //const ornekler = JSON.parse(ornek).map(ozellik=>ozellik.ornek).join("")
     const ornek_cumle = JSON.parse(ornek)[0].ornek;
     return (
         <div className="outputMeaning">

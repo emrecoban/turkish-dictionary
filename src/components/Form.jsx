@@ -2,6 +2,10 @@ import React from "react";
 import Output from "./Output";
 import Autowords from '../autocomplete';
 
+import * as htmlToImage from 'html-to-image';
+import { Helmet } from 'react-helmet-async';
+
+
 
 export default function Form({darkMode, urlTakip}){
     const [kelime, setKelime] = React.useState({show:false, kelime:""})
@@ -10,6 +14,7 @@ export default function Form({darkMode, urlTakip}){
     const [loader, setLoader] = React.useState(urlTakip ? true : false)
     const [kelimeOner, setKelimeOner] = React.useState("")
     const [oneriKutusu, setOneriKutusu] = React.useState(true)
+    const [metaImg, setMetaImg] = React.useState(null)
 
     async function fetchTDK(word){
         const res = await fetch("https://sozluk.gov.tr/gts?ara=" + word)
@@ -27,12 +32,11 @@ export default function Form({darkMode, urlTakip}){
             setKelime({show:true, kelime:"Bulunamadı."})
             setAnlam([])
             setOutputs([])
-            setLoader(false)
         }else{
             setAnlam(anlamListe)
             setKelime({kelime:word, show:true})
-            setLoader(false)
         }
+        setLoader(false)
     }
 
     React.useEffect(()=>{
@@ -63,6 +67,26 @@ export default function Form({darkMode, urlTakip}){
         setOneriKutusu(true)
     }, [kelimeOner])
 
+    function createImg(){
+        htmlToImage.toPng(document.getElementById('pageToImg'))
+                    .then(function (dataUrl) {
+                        const img = new Image();
+                        img.src = dataUrl;
+                        //document.body.appendChild(img);
+                        setMetaImg(dataUrl)
+                        console.log("resim geldi: ", metaImg)
+                    })
+                    .catch(function (error) {
+                        console.error('oops, something went wrong! htmlToImage: ', error);
+                    });
+    }
+
+    React.useEffect(()=>{
+        createImg()
+    }, [outputs])
+
+    
+
     return (
         <>
             <form onSubmit={handleForm}>
@@ -80,14 +104,31 @@ export default function Form({darkMode, urlTakip}){
             {
                 kelimeOner.length > 2 && Autowords.filter(oneri=>oneri.madde.startsWith(kelimeOner)).slice(0,7).map((oneriP, i)=><p className={oneriKutusu ? darkMode ? "onerilenler dark" : "onerilenler" : "onerilenler hide"} key={i}><b>{kelimeOner}</b>{oneriP.madde.split(kelimeOner)[1]}</p>)
             }
-            <h1 className="outputWord">{kelime.show && kelime.kelime}</h1>
-            {
-                loader ? 
-                <>
-                    <br /><div className="loader"></div><br />
-                </>
-                : outputs
-            }
+            <div id="pageToImg">
+                <h1 className="outputWord">{kelime.show && kelime.kelime}</h1>
+                {
+                    loader ? 
+                    <>
+                        <br /><div className="loader"></div><br />
+                    </>
+                    : 
+                    <>
+                        {outputs}
+                        <Helmet>
+                            <title>{kelime.kelime} Anlamı - Türkçe Sözlük</title>
+                            <meta name="description" content={`${kelime.kelime} Anlamı - Türkçe Sözlük`} />
+                            <meta property="og:title" content={`${kelime.kelime} - Türkçe Sözlük`} />
+                            <meta property="og:description" content={`${kelime.kelime} Anlamı - Türkçe Sözlük`} />
+                            <meta property="twitter:title" content={`${kelime.kelime} - Türkçe Sözlük`} />
+                            <meta property="twitter:description" content={`${kelime.kelime} Anlamı - Türkçe Sözlük`} />
+                            <meta name="twitter:creator" content="@emreshepherd" />
+                            <meta name="twitter:image" content={metaImg} />
+                            <meta name="og:image" content={metaImg} />
+                        </Helmet>
+                    </>
+                    
+                }
+            </div>
         </>
     )
 }
