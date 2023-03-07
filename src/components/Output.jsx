@@ -10,12 +10,12 @@ export default function Output({anlam, tip, ornek, darkMode}){
                 <p>{ozellikler}</p>
                 <hr className={darkMode ? "dark" : ""}/>
             </div>
-            <p>Anlamı</p>
+            <p className={darkMode ? "dark" : ""}>Anlamı</p>
             <ul><li>{anlam.replace("343", "bkz.")}</li></ul>
             {
                 ornek_cumle !=0 && 
                 <>
-                    <p>Örnek cümle</p>
+                    <p className={darkMode ? "dark" : ""}>Örnek cümle</p>
                     <ul><li>{ornek_cumle}</li></ul>
                 </>
             }
