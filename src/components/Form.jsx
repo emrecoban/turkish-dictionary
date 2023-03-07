@@ -122,6 +122,7 @@ export default function Form({darkMode, urlTakip}){
                             <meta property="twitter:title" content={`${kelime.kelime} - Türkçe Sözlük`} />
                             <meta property="twitter:description" content={`${kelime.kelime} Anlamı - Türkçe Sözlük`} />
                             <meta name="twitter:creator" content="@emreshepherd" />
+                            <meta name="twitter:card" content="summary_large_image" />
                             <meta name="twitter:image" content="https://i.imgur.com/H3vOUS6.png" />
                             <meta name="og:image" content="https://i.imgur.com/H3vOUS6.png" />
                         </Helmet>
