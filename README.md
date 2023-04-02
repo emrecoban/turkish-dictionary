@@ -3,6 +3,9 @@
 # <center>Türkçe Sözlük</center>
 Türkçe Sözlük, kelimelerin anlamlarını, özelliklerini ve örnek cümleler içerisinde kullanımını gösteren bir dijital platformdur. Platformda yer alan kelimelerin veri kaynağı [sozluk.gov.tr](https://sozluk.gov.tr)'dir.
 
+### 🇬🇧 English
+Türkçe Sözlük ("The Turkish Dictionary") is a digital platform that displays the meanings, properties, and usage of words in example sentences. The data source for the words included in the platform is [sozluk.gov.tr](https://sozluk.gov.tr).
+
 ## Önizleme
 Türkçe Sözlük, [turkcesozluk.vercel.app](https://turkcesozluk.vercel.app) adresi üzerinden kullanılabilir.
 
