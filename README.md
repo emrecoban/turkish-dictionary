@@ -58,7 +58,7 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 
 2. Proje dizinine gidin:
 ```bash
-  cd caption-meow
+  cd turkish-dictionary
 ```
 
 3. Gerekli bağımlılıkları `npm` ile yükleyin:
