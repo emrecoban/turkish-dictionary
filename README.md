@@ -30,28 +30,67 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 | -------- |
 |![](https://raw.githubusercontent.com/emrecoban/turkish-dictionary/main/github_assets/ss3.png)|
 
+## Dizin Yapısı
+```bash
+├── public
+├── src
+│   ├── components
+│   │   ├── Form.jsx
+│   │   ├── Header.jsx
+│   │   ├── Home.jsx
+│   │   └── Output.jsx
+│   ├── App.jsx
+│   ├── autocomplete.jsx
+│   ├── main.jsx
+│   └── style.css
+├── README.md
+├── package.json
+├── package-lock.json
+├── vercel.json
+└── vite.config.js
+```
+
+## Kurulum
+1. Bu depoyu yerel makinenize klonlayın:
+```bash
+  git clone https://github.com/emrecoban/turkish-dictionary.git
+```
+
+2. Proje dizinine gidin:
+```bash
+  cd caption-meow
+```
+
+3. Gerekli bağımlılıkları `npm` ile yükleyin:
+```bash
+  npm install
+```
+
+4. Uygulamayı başlatın:
+```bash
+  npm run dev
+```
+5. Tarayıcınızda '[http://localhost:5173](http://localhost:5173)' adresine giderek uygulamayı görüntüleyin.
 
 ## Katkıda Bulunma
 Hata raporları, özellik talepleri ve pull request'leri memnuniyetle karşılanmaktadır. Bu proje, işbirliği için güvenli ve hoşgörülü bir ortam olmayı amaçlamaktadır ve katkıda bulunanların, Katılımcı Anlaşması'nın davranış kurallarına uyması beklenmektedir.
 
-## Kurulum
-1. Node.js ve npm yüklü olmalıdır.
-2. Bağımlılıkları yükleyin.
-3. ...
+## Yapılacaklar
+- [ ] Arama geçmişinin listelenmesi.
+- [ ] Sözcüklerin İngilizce dilindeki eş anlamlılarının gösterilmesi.
+
+## Teknolojiler
+- JavaScript
+- React
+  * React Router
+- Vite
+- JSON
 
 ## Destek
+- Bana GitHub üzerinden sponsor ol.
 - Bu repo'ya yıldız ver.
 - Beni Twitter'dan ya da GitHub'dan takip et: [@emreshepherd](https://twitter.com/emreshepherd) - [@emrecoban](https://github.com/emrecoban).
 - Bana kahve ısmarla: https://www.buymeacoffee.com/emrecoban
-
-
-## Kullanılan Teknolojiler
-- HTML
-- CSS
-- JavaScript
-- ReactJS (JavaScript Kütüphanesi)
-  * React, ReactDOM, React Router
-- JSON
 
 ## Lisans
 Türkçe Sözlük, MIT Lisansı şartları altında açık kaynak olarak kullanıma sunulmaktadır.
