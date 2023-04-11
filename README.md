@@ -78,6 +78,7 @@ Hata raporları, özellik talepleri ve pull request'leri memnuniyetle karşılan
 ## Yapılacaklar
 - [ ] Arama geçmişinin listelenmesi.
 - [ ] Sözcüklerin İngilizce dilindeki eş anlamlılarının gösterilmesi.
+- [ ] Arama sonucuna göre `twitter:image` meta etiketinin oluşturulması.
 
 ## Teknolojiler
 - JavaScript
