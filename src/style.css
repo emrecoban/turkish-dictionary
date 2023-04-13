@@ -262,3 +262,41 @@ nav .darkModeLogo{
 .outputType > hr.dark {
     border: 1px solid #454545;
 }
+
+/* SEARCH HISTORY */
+
+#searchHistory {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0 0 10px 0;
+  overflow-x: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+  justify-content: center;
+}
+
+#searchHistory::-webkit-scrollbar{ display: none; }
+
+#searchHistory a{
+  display: block;
+  padding:5px 10px;
+  background-color: #F4F4F4;
+  color: #6f2e9e;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+#searchHistory a:hover{
+  background-color: #6f2e9e;
+  color: #F4F4F4;
+}
+
+.darkHistory a{
+  background-color: #1E1E1F !important;
+  color: #F4F4F4 !important;
+}
+
+.darkHistory a:hover{
+  background-color: #6f2e9e !important;
+}

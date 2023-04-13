@@ -15,7 +15,8 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 - Adres çubuğu üzerinden arama yapabilme: [turkcesozluk.vercel.app/](https://turkcesozluk.vercel.app/)`{kelime}`
 - Otomatik öneriler
 - Karanlık stil (Dark mode)
-- Esnek arayüz (Bilgisayar, telefon, tablet...)
+- Esnek arayüz (Responsive)
+- Kullanıcıya özel arama geçmişi
 
 ## Ekran Görüntüleri
 | Türkçe Sözlük - "deney" arama sonuçları (Light) |
@@ -76,7 +77,7 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 Hata raporları, özellik talepleri ve pull request'leri memnuniyetle karşılanmaktadır. Bu proje, işbirliği için güvenli ve hoşgörülü bir ortam olmayı amaçlamaktadır ve katkıda bulunanların, Katılımcı Anlaşması'nın davranış kurallarına uyması beklenmektedir.
 
 ## Yapılacaklar
-- [ ] Arama geçmişinin listelenmesi.
+- [x] Arama geçmişinin listelenmesi.
 - [ ] Sözcüklerin İngilizce dilindeki eş anlamlılarının gösterilmesi.
 - [ ] Arama sonucuna göre `twitter:image` meta etiketinin oluşturulması.
 
