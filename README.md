@@ -31,6 +31,10 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 | -------- |
 |![](https://raw.githubusercontent.com/emrecoban/turkish-dictionary/main/github_assets/ss3.png)|
 
+| Türkçe Sözlük - Kullanıcıya özel arama geçmişi (Dark) |
+| -------- |
+|![](https://raw.githubusercontent.com/emrecoban/turkish-dictionary/main/github_assets/ss4.png)|
+
 ## Dizin Yapısı
 ```bash
 ├── public
