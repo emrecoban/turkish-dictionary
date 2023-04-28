@@ -11,6 +11,7 @@ export default function Home() {
   const [history, setHistory] = React.useState(
     JSON.parse(localStorage.getItem("history")) || new Array(7)
   );
+  const [trash, setTrash] = React.useState(false);
 
   function handleDarkMode() {
     setDarkMode((prevMode) => {
@@ -20,6 +21,7 @@ export default function Home() {
   }
 
   function handleHistory(kelime) {
+    setTrash(true)
     setHistory((prevHistory) => {
       const newHistory = [...prevHistory];
       if (!prevHistory.includes(kelime)) {
@@ -32,6 +34,7 @@ export default function Home() {
 
   React.useEffect(() => {
     localStorage.setItem("history", JSON.stringify(history));
+    history.every(word => word == null) && setTrash(false)
   }, [history]);
 
   darkMode
@@ -41,11 +44,12 @@ export default function Home() {
 
   function deleteHistory() {
     setHistory(new Array(7))
+    setTrash(false)
   }
 
   return (
     <main>
-      <Header toggleDarkMode={handleDarkMode} darkMode={darkMode} deleteHistory={deleteHistory} />
+      <Header toggleDarkMode={handleDarkMode} darkMode={darkMode} deleteHistory={deleteHistory} trashStatus={trash} />
       <div id="searchHistory" className={darkMode ? "darkHistory" : ""}>
         {history.map(
           (item, index) =>
