@@ -1,17 +1,16 @@
 import React from "react";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import kelimeList from "../autocomplete"
 
 export default function Header({ toggleDarkMode, darkMode }) {
-    console.log("toplam: ", kelimeList[49].madde)
     const navigate = useNavigate()
 
     function randomWord() {
         //total word: 92408
         const findIndex = Math.floor(Math.random() * 92400) + 49 // ignore ".." words
-        console.log("BULUNAN => ", kelimeList[findIndex].madde)
         return navigate(`/${kelimeList[findIndex].madde}`)
     }
+
     return (
         <nav>
             <div className={darkMode ? "mainLogo dark" : "mainLogo"}>

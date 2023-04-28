@@ -1,6 +1,7 @@
 import React from "react";
 import Output from "./Output";
 import Autowords from "../autocomplete";
+import copy from "copy-text-to-clipboard";
 
 export default function Form({ darkMode, urlTakip, handleHistory }) {
   const [kelime, setKelime] = React.useState({ show: false, kelime: "" });
@@ -72,6 +73,11 @@ export default function Form({ darkMode, urlTakip, handleHistory }) {
     setOneriKutusu(true);
   }, [kelimeOner]);
 
+  function kelimeCopy() {
+    copy('🦄🌈');
+    console.log("kopyalandı!")
+  }
+
   return (
     <>
       <form onSubmit={handleForm}>
@@ -107,6 +113,7 @@ export default function Form({ darkMode, urlTakip, handleHistory }) {
             </p>
           ))}
       <h1 className="outputWord">{kelime.show && kelime.kelime}</h1>
+
       {loader ? (
         <>
           <br />
