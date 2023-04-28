@@ -21,6 +21,7 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 - Karanlık stil (Dark mode)
 - Esnek arayüz (Responsive)
 - Kullanıcıya özel arama geçmişi
+- Arama geçmişini temizleme
 - Rastgele kelime aratma
 - Kelimele anlamlarını kopyalama
 
