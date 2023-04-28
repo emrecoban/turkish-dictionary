@@ -74,8 +74,13 @@ export default function Form({ darkMode, urlTakip, handleHistory }) {
   }, [kelimeOner]);
 
   function kelimeCopy() {
-    copy('🦄🌈');
-    console.log("kopyalandı!")
+    const anlamlar = anlam.map((anlam, i) => {
+      const tip = anlam.ozelliklerListe
+        ? JSON.stringify(anlam.ozelliklerListe)
+        : '[{"tam_adi":"isim"}]'
+      return `${i + 1}. ${JSON.parse(tip).map(ozellik => ozellik.tam_adi).join(', ')}: ${anlam.anlam}`
+    }).join('\n')
+    copy(`=> ${kelime.kelime}\n${anlamlar}\nturkcesozluk.vercel.app`);
   }
 
   return (
@@ -112,7 +117,12 @@ export default function Form({ darkMode, urlTakip, handleHistory }) {
               {oneriP.madde.split(kelimeOner)[1]}
             </p>
           ))}
-      <h1 className="outputWord">{kelime.show && kelime.kelime}</h1>
+      {kelime.show && (
+        <div className="outputHeadline">
+          <h1 className="outputWord">{kelime.kelime}</h1>
+          <i onClick={kelimeCopy} className="fa-regular fa-copy navLink"></i>
+        </div>
+      )}
 
       {loader ? (
         <>

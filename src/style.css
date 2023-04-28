@@ -75,7 +75,6 @@ nav .rightPanel {
   background-color: #F4F4F4;
   color: #a951e8;
   border-radius: 8px;
-  font-weight: bold;
   text-decoration: none;
   border: 0;
   transition: scale 0.2s;
@@ -263,8 +262,16 @@ nav .rightPanel {
 
 /* Output */
 
+.outputHeadline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 25px;
+  gap: 5px;
+}
+
 .outputWord {
-  margin: 25px;
+  margin: 25px 0;
   font-family: 'Merriweather', sans-serif;
   font-weight: 700;
   font-size: 2.2em;
