@@ -361,6 +361,8 @@ nav .rightPanel {
   color: #6f2e9e;
   border-radius: 8px;
   text-decoration: none;
+  min-width: auto;
+  white-space: nowrap;
 }
 
 #searchHistory a:hover {
