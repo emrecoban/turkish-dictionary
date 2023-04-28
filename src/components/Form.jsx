@@ -120,7 +120,7 @@ export default function Form({ darkMode, urlTakip, handleHistory }) {
       {kelime.show && (
         <div className="outputHeadline">
           <h1 className="outputWord">{kelime.kelime}</h1>
-          <i onClick={kelimeCopy} className="fa-regular fa-copy navLink"></i>
+          <i onClick={kelimeCopy} className={darkMode ? "fa-regular fa-copy navLink dark" : "fa-regular fa-copy navLink"}></i>
         </div>
       )}
 
