@@ -21,6 +21,7 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 - Karanlık stil (Dark mode)
 - Esnek arayüz (Responsive)
 - Kullanıcıya özel arama geçmişi
+- Rastgele kelime aratma
 
 ## Ekran Görüntüleri
 
@@ -96,7 +97,7 @@ Hata raporları, özellik talepleri ve pull request'leri memnuniyetle karşılan
 ## Yapılacaklar
 
 - [x] Arama geçmişinin listelenmesi.
-- [ ] Rastgele kelime düğmesi.
+- [x] Rastgele kelime düğmesi.
 - [ ] Sözcüklerin İngilizce dilindeki eş anlamlılarının gösterilmesi.
 - [ ] Arama sonucuna göre `twitter:image` meta etiketinin oluşturulması.
 

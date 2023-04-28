@@ -69,6 +69,38 @@ nav .rightPanel {
   gap: 5px;
 }
 
+.navLink {
+  display: block;
+  padding: 10px 15px;
+  background-color: #F4F4F4;
+  color: #a951e8;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 0;
+  transition: scale 0.2s;
+}
+
+.navLink:hover {
+  background-color: #6f2e9e;
+  color: #F4F4F4;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navLink:active {
+  scale: 0.9;
+}
+
+.navLink.dark {
+  background-color: #1E1E1F !important;
+  color: #F4F4F4 !important;
+}
+
+.navLink.dark:hover {
+  background-color: #6f2e9e !important;
+}
+
 /* Checkbox start */
 
 .darkMode-Wrapper .ikxBAC {
