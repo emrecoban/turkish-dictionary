@@ -22,6 +22,7 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 - Esnek arayüz (Responsive)
 - Kullanıcıya özel arama geçmişi
 - Rastgele kelime aratma
+- Kelimele anlamlarını kopyalama
 
 ## Ekran Görüntüleri
 
