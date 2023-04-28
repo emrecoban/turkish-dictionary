@@ -36,6 +36,7 @@ nav {
   height: 80px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   padding: 0 25px;
 }
@@ -47,6 +48,25 @@ nav .logo {
 
 nav .darkModeLogo {
   font-size: 1.3em;
+}
+
+nav .mainLogo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  font-family: 'Croissant One', cursive;
+  color: #454545;
+}
+
+nav .mainLogo.dark {
+  color: #adadad;
+}
+
+nav .rightPanel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* Checkbox start */
