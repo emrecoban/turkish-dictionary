@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import kelimeList from "../autocomplete"
 
-export default function Header({ toggleDarkMode, darkMode }) {
+export default function Header({ toggleDarkMode, darkMode, deleteHistory }) {
     const navigate = useNavigate()
 
     function randomWord() {
@@ -18,6 +18,7 @@ export default function Header({ toggleDarkMode, darkMode }) {
                 <p>Sözlük</p>
             </div>
             <div className="rightPanel">
+                <i onClick={deleteHistory} className={darkMode ? "fa-regular fa-trash-can navLink dark" : "fa-regular fa-trash-can navLink"}></i>
                 <button onClick={randomWord} className={darkMode ? "navLink dark" : "navLink"}>Rastgele Kelime</button>
                 <div className="darkMode-Wrapper">
                     <input type="checkbox" id="darkMode" className="sc-gJwTLC ikxBAC" onChange={toggleDarkMode} checked={darkMode} />

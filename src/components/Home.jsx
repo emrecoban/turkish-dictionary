@@ -37,9 +37,15 @@ export default function Home() {
   darkMode
     ? document.body.classList.add("dark")
     : document.body.classList.remove("dark");
+
+
+  function deleteHistory() {
+    setHistory(new Array(7))
+  }
+
   return (
     <main>
-      <Header toggleDarkMode={handleDarkMode} darkMode={darkMode} />
+      <Header toggleDarkMode={handleDarkMode} darkMode={darkMode} deleteHistory={deleteHistory} />
       <div id="searchHistory" className={darkMode ? "darkHistory" : ""}>
         {history.map(
           (item, index) =>
