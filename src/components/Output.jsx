@@ -1,8 +1,10 @@
 import React from "react";
 
+
 export default function Output({ anlam, tip, ornek, darkMode }) {
     const ozellikler = JSON.parse(tip).map(ozellik => ozellik.tam_adi).join(", ")
     const ornek_cumle = JSON.parse(ornek)[0].ornek;
+
     return (
         <div className="outputMeaning">
             <div className={darkMode ? "outputType dark" : "outputType"}>

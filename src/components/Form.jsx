@@ -2,6 +2,7 @@ import React from "react";
 import Output from "./Output";
 import Autowords from "../autocomplete";
 import copy from "copy-text-to-clipboard";
+import autoAnimate from '@formkit/auto-animate'
 
 export default function Form({ darkMode, urlTakip, handleHistory }) {
   const [kelime, setKelime] = React.useState({ show: false, kelime: "" });
@@ -10,6 +11,7 @@ export default function Form({ darkMode, urlTakip, handleHistory }) {
   const [loader, setLoader] = React.useState(urlTakip ? true : false);
   const [kelimeOner, setKelimeOner] = React.useState("");
   const [oneriKutusu, setOneriKutusu] = React.useState(true);
+  const animateOutput = React.useRef(null)
 
   async function fetchTDK(word) {
     const res = await fetch("https://sozluk.gov.tr/gts?ara=" + word);
@@ -31,6 +33,7 @@ export default function Form({ darkMode, urlTakip, handleHistory }) {
       setAnlam(anlamListe);
       setKelime({ kelime: word, show: true });
       handleHistory(word);
+      animateOutput.current && autoAnimate(animateOutput.current)
     }
     setLoader(false);
   }
@@ -131,7 +134,9 @@ export default function Form({ darkMode, urlTakip, handleHistory }) {
           <br />
         </>
       ) : (
-        outputs
+        <div ref={animateOutput}>
+          {outputs}
+        </div>
       )}
     </>
   );

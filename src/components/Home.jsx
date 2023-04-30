@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "./Form";
 import Header from "./Header";
+import autoAnimate from '@formkit/auto-animate';
 
 import { useParams, Link } from "react-router-dom";
 
@@ -12,6 +13,7 @@ export default function Home() {
     JSON.parse(localStorage.getItem("history")) || new Array(7)
   );
   const [trash, setTrash] = React.useState(false);
+  const historyAnimate = React.useRef(null)
 
   function handleDarkMode() {
     setDarkMode((prevMode) => {
@@ -35,6 +37,7 @@ export default function Home() {
   React.useEffect(() => {
     localStorage.setItem("history", JSON.stringify(history));
     history.every(word => word == null) && setTrash(false)
+    historyAnimate.current && autoAnimate(historyAnimate.current)
   }, [history]);
 
   darkMode
@@ -50,7 +53,7 @@ export default function Home() {
   return (
     <main>
       <Header toggleDarkMode={handleDarkMode} darkMode={darkMode} deleteHistory={deleteHistory} trashStatus={trash} />
-      <div id="searchHistory" className={darkMode ? "darkHistory" : ""}>
+      <div id="searchHistory" ref={historyAnimate} className={darkMode ? "darkHistory" : ""}>
         {history.map(
           (item, index) =>
             item && (
