@@ -108,6 +108,8 @@ Hata raporları, özellik talepleri ve pull request'leri memnuniyetle karşılan
 - JavaScript
 - React
   - React Router
+  - copy-text-to-clipboard
+  - auto-animate
 - Vite
 - JSON
 
