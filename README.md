@@ -43,6 +43,10 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 | ---------------------------------------------------------------------------------------------- |
 | ![](https://raw.githubusercontent.com/emrecoban/turkish-dictionary/main/github_assets/ss4.png) |
 
+| Türkçe Sözlük - Arama geçmişini temizleme ve animasyon (Light)                                          |
+| ------------------------------------------------------------------------------------------------------- |
+| ![](https://raw.githubusercontent.com/emrecoban/turkish-dictionary/main/github_assets/animation_td.gif) |
+
 ## Dizin Yapısı
 
 ```bash
@@ -63,6 +67,8 @@ Arama çubuğuna istediğiniz Türkçe sözcüğü yazarak arama yapabilirsiniz.
 ├── vercel.json
 └── vite.config.js
 ```
+
+![markmap](https://raw.githubusercontent.com/emrecoban/turkish-dictionary/main/github_assets/markmap.png)
 
 ## Kurulum
 
