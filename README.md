@@ -126,6 +126,10 @@ Hata raporları, özellik talepleri ve pull request'leri memnuniyetle karşılan
 - Beni Twitter'dan ya da GitHub'dan takip et: [@emreshepherd](https://twitter.com/emreshepherd) - [@emrecoban](https://github.com/emrecoban).
 - Bana kahve ısmarla: https://www.buymeacoffee.com/emrecoban
 
+## Referanslar
+
+- [Dictionary web app - Frontend Mentor](https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL)
+
 ## Lisans
 
 Türkçe Sözlük, MIT Lisansı şartları altında açık kaynak olarak kullanıma sunulmaktadır.
